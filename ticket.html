@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Details-->
+        <title>Bilet Al</title>
+        <link rel="icon" href="icons/favicon.png">
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0, maximum-scale= 0">
+
+        <!--Alert-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!--SEO Part-->
+        <meta name="descrition" content="Kırklareli Deneyap">
+        <meta name="keywords" content="Deneyap, Kırklareli, Kırklareli Deneyap, Proje">
+
+
+        <style>
+
+            #resim{
+                width: 550px;
+                height: 380px;
+                -webkit-user-drag: none;
+            }
+
+            
+
+            h2{
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: medium;
+                font-weight: bolder;
+            }
+            #h2{
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: small;
+                font-weight: bolder;
+            }
+
+            #warning_text{
+                color: #ff4e4e;
+            }
+            #seyahat_saatleri{
+                color: white;
+                font-size: medium;
+                font-weight: bolder;
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--Header & Navigation-->
+        <header>
+            <nav>
+                <form id="navigation_home">
+                    <center>
+                    <input class="button" type="button" value="Anasayfa" onclick="window.location.href='index.html';">
+                    <input class="button" type="button" value="Bilet Al" onclick="window.location.href='ticket.html';">
+                    <input class="button" type="button" value="Projeler" onclick="window.location.href='projects.html';">
+                    <input class="button" type="button" value="Hakkımızda" onclick="window.location.href='about.html';">
+                    </center>
+                </form>
+            </nav>
+        </header>
+        <br>
+        <br>
+        <article>
+            <nav>
+        
+               <center>    
+                <article id="payment_article"> 
+                    <br>
+                   <img src="photos/oturma_planı.png" id="resim" alt="">        
+                    
+                   <form id="ticket_panel" action="">
+                    <br>
+                    <em id="warning_text">Doğrulama kodunuzu not etmeyi unutmayın!</em>
+                    <br>
+                    <strong id="h2">⚠️ Formu yanlış veya eksik dolduğunuzda biletiniz iptal edilecektir. ⚠️</strong>
+                    <br><br>
+                    <hr>
+                    <table>
+                    <tr><td>
+                    <form name="payment_type">
+                        <h2>Koltuk Türü:</h2>
+                        <select name="Koltuk_Turu" id="Seat_type">
+                        <option class="secenek">Lütfen Seçin...</option select>
+                        <option id="Seat_type_eco" class="secenek">Ekonomi</option>
+                        <option id="Seat_type_lux" class="secenek">Business</option>
+                    </select>
+                    </form>    
+                    </td>
+
+                    <td>                   
+                    <form name="Payment_type">
+                        <h2>Bilet Türü:</h2>
+                        <select name="Yolcu_Turu" id="Payment_type">
+                        <option class="secenek">Lütfen Seçin...</option select>
+                        <option class="secenek">Öğrenci</option>
+                        <option class="secenek">Sivil</option>
+                        <option class="secenek">Şehit Yakını / Gazi</option>
+                    </select>
+                    </form>
+                    </td></tr>
+                    </table>
+                    <center>
+                    <br>
+                    <h2  id="payment_name">Ad-Soyad:</h2>
+                    <input class="gerekli" type="text" placeholder="Adınız-Soyadınız" title="Gerekli">
+                    <br><br>
+
+                    <h2 id="seat_number">Koltuk Numarası:</h2>
+                    <input class="gerekli" type="number" placeholder="Koltuk Numarası" title="Gerekli" max="24"  min="1">
+                    <br><br>
+
+                    <form id="seyahat_saatleri">
+                    <h2 id="seyahat_saatleri">Seyahat Saatleri:</h2>
+                    <input type="radio" name="saat" id="seyahat_saatleri" >10:00
+                    <input type="radio" name="saat" id="seyahat_saatleri" >13:30
+                    <input type="radio" name="saat" id="seyahat_saatleri" >17:00
+                    <input type="radio" name="saat" id="seyahat_saatleri" >20:00
+                    <input type="radio" name="saat" id="seyahat_saatleri" >23:00
+                    </form>
+
+                    <br><br><br>
+
+                    <input id="gonder"  type="button" onclick="gonder2" value="SATIN AL">
+                    <br><br><br>
+
+                    <script type="text/javascript">
+                    /*
+                        $(document).ready(function(){
+                        $("#ticket_panel").on("keyup change", function(event){
+                            form_kontrol();
+                        });
+                    });
+                    /*
+                    var form_kontrol = function(){
+                        if($("#payment_name").val().length = 0)
+                            $("#gonder").prop("disabled", true);
+
+                        else if($("#seat_number").val().length == 0)
+                            $("#gonder").prop("disabled", true);
+                        else
+                            $("#gonder").prop("disabled", true);
+                    }
+                    */
+
+                    /*  Alert  */
+                        var modal = document.getElementById('gonder');
+                        modal.onclick = function(event) {
+                    
+                    swal({
+                    title: "Emin Misiniz?",
+                    text: "Biletinizi gerçekten sipariş etmek istiyor musunuz?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        swal({
+                        title: "Biletiniz satın alınmıştır.",
+                        text: generateString(8),
+                        icon: "success",
+                        buttons: false,
+                        });
+
+                    } else {
+                    
+                        swal("Biletiniz başarıyla iptal edilmiştir.", {
+                        icon: "info",
+                        buttons: false,
+                        });
+                    }
+                    });
+                        }
+
+                        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+                    function generateString(length) {
+                        let result = 'Doğrulama Kodu: ';
+                        const charactersLength = characters.length;
+                        for ( let i = 0; i < length; i++ ) {
+                            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                        }
+
+                        return result;
+                    }
+                        </script>
+
+                    </center>
+                </form>
+                </article>
+            </center>
+
+            </nav>
+        </article>
+        <br>
+        <br>
+        <!--Footer-->
+        <footer id="footer">
+        </center>
+            <p>© Tüm hakları saklıdır. <a id="footer_s" href="https://instagram.com/utku_ergel">Utku Ergel</a> Tarafından yapılmıştır.</p>
+        </center>
+                <!--Scripts-->
+                <script>
+                    console.error("⚠ BU ALANA BİLMEDİĞİNİZ HERHANGİ BİR KOD YAZMAYIN!")
+                    console.warn("Utku Ergel Teknolojileri                                |Bağlantı: Normal | Sunucu: LA=?0049f7.uıpf")
+                    console.info("Tüm hakları saklıdır.")
+                    </script>
+    </body>
+    
+</html>
